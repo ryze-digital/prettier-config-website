@@ -1,6 +1,6 @@
 {
   "name": "@ryze-digital/prettier-config-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "RYZE Digital GmbH <kontakt@ryze-digital.de> (https://www.ryze-digital.de/)",
   "description": "Enforces a consistent code style for our website projects",
   "license": "MIT",
