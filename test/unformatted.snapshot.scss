@@ -1,0 +1,89 @@
+/*
+ * Deliberately unformatted file used as a regression fixture for the shipped config.
+ * The output Prettier produces for this file is recorded in unformatted.snapshot.scss.
+ * After a dependency upgrade the snapshot must still match, otherwise Prettier
+ * changed its output or one of our options stopped having an effect.
+ *
+ *     npm test                 compare against the snapshot
+ *     npm test -- --update     rewrite the snapshot after an intentional change
+ */
+@use "sass:map";
+@use "sass:math";
+
+$breakpoints: (
+    small: 576px,
+    medium: 768px,
+    large: 992px,
+    extra-large: 1200px,
+);
+$spacing: math.div(16px, 2);
+
+@mixin respond($name) {
+    @media (min-width: map.get($breakpoints,$name)) {
+        @content;
+    }
+}
+
+%placeholder {
+    color: #000000;
+    background: #fff;
+}
+
+// tabWidth: two spaces and tabs must both end up as four spaces
+.block {
+    @extend %placeholder;
+    padding: $spacing $spacing * 2;
+    &__element {
+        margin: 0 auto;
+        &--modifier {
+            display: none;
+        }
+    }
+    &:hover,
+    &:focus-visible {
+        color: red;
+    }
+    @include respond(medium) {
+        padding: $spacing * 2;
+    }
+}
+
+// printWidth: a selector list and a value that fit in 120 but not in 80
+.block .block__element,
+.block .block__element--modifier,
+.block:hover .block__element {
+    transition: color 0.2s ease-in-out;
+}
+.grid {
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)) repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+// printWidth: wider than 120 characters and has to be wrapped
+.shadow {
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.loop {
+    @each $name, $size in $breakpoints {
+        &-#{$name} {
+            max-width: $size;
+        }
+    }
+    @for $i from 1 through 3 {
+        .item-#{$i} {
+            width: math.div(100%, $i);
+        }
+    }
+}
+
+@function double($value) {
+    @return $value * 2;
+}
+
+.function {
+    width: double(10px);
+}
