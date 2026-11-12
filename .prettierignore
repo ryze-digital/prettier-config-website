@@ -1,0 +1,5 @@
+# Deliberately unformatted regression fixtures, see test/snapshot.js
+test/unformatted.js
+test/unformatted.scss
+# Written by npm with its own indentation
+package-lock.json
