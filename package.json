@@ -1,17 +1,30 @@
 {
   "name": "@ryze-digital/prettier-config-website",
-  "version": "1.0.1",
-  "author": "RYZE Digital GmbH <kontakt@ryze-digital.de> (https://www.ryze-digital.de/)",
   "description": "Enforces a consistent code style for our website projects",
   "license": "MIT",
+  "version": "1.0.1",
+  "author": "RYZE Digital GmbH <kontakt@ryze-digital.de> (https://www.ryze-digital.de/)",
   "main": "index.js",
   "type": "module",
   "repository": "github:ryze-digital/prettier-config-website",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "prettier --config index.js --check \"**/*.{js,scss}\"",
+    "test": "node test/snapshot.js"
+  },
+  "peerDependencies": {
+    "prettier": "^3.10.1"
+  },
   "keywords": [
     "prettier",
-    "prettierconfig"
+    "prettierconfig",
+    "formatter",
+    "javascript",
+    "scss"
   ],
-  "peerDependencies": {
-    "prettier": "^3.4.2"
+  "engines": {
+    "node": "^22.22.2 || >=24.15.0"
   }
 }
