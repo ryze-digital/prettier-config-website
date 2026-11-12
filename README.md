@@ -11,7 +11,7 @@ npm i @ryze-digital/prettier-config-website --save-dev
 Add the following to your `prettier.config.js`:
 
 ```js
-import config from '@ryze-digital/prettier-config-website';
+import config from "@ryze-digital/prettier-config-website";
 
 export default config;
 ```
@@ -22,10 +22,10 @@ If you want to change (for example) the line length for your whole project, you 
 `prettier.config.js` to the following:
 
 ```js
-import config from '@ryze-digital/prettier-config-website';
+import config from "@ryze-digital/prettier-config-website";
 
 export default {
     ...config,
-    printWidth: 80
+    printWidth: 80,
 };
 ```
