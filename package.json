@@ -2,7 +2,7 @@
   "name": "@ryze-digital/prettier-config-website",
   "description": "Enforces a consistent code style for our website projects",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "RYZE Digital GmbH <kontakt@ryze-digital.de> (https://www.ryze-digital.de/)",
   "main": "index.js",
   "type": "module",
